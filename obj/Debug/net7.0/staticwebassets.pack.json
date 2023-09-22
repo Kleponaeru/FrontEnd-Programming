@@ -73,6 +73,10 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "C:\\Users\\lenovo\\FrontEnd\\sampahWasm\\wwwroot\\profile.css",
+      "PackagePath": "staticwebassets\\profile.css"
+    },
+    {
       "Id": "C:\\Users\\lenovo\\FrontEnd\\sampahWasm\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },

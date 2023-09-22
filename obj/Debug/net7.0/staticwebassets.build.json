@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BLiG1WADtct/GN0zwx9oYFqxtyzovMBx6pVQOHE0ZLM=",
+  "Hash": "nZfYGJyhxwEHwvd5EB8mogMQjEEBLM9JMCNLiNciFNA=",
   "Source": "sampahWasm",
   "BasePath": "/",
   "Mode": "Root",
@@ -7155,6 +7155,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\FrontEnd\\sampahWasm\\wwwroot\\profile.css",
+      "SourceId": "sampahWasm",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\FrontEnd\\sampahWasm\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "profile.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profile.css"
     },
     {
       "Identity": "C:\\Users\\lenovo\\FrontEnd\\sampahWasm\\wwwroot\\sample-data\\weather.json",

@@ -826,3 +826,5 @@ C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\sampahWasm.dll
 C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\refint\sampahWasm.dll
 C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\sampahWasm.pdb
 C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\ref\sampahWasm.dll
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\package-lock.json
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\package.json
