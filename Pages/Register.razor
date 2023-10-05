@@ -1,46 +1,59 @@
 @page "/register"
 @inject NavigationManager Navigation
+@using System
+@using System.ComponentModel.DataAnnotations
+@* @inherits Models.RegisterModel *@
+
 <style>
     /* Style for the form container */
     .form-container {
-        width: 300px; /* Set the width to your desired size */
-        margin: 0 auto; /* Center the form horizontally */
+        width: 300px;
+        margin: 0 auto;
         padding: 20px;
-        background-color: #f4f4f4; /* Background color for the form */
-        border-radius: 10px; /* Rounded corners for the form */
-        text-align: center; /* Center align text within the form */
+        background-color: #fff;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     /* Style for labels */
     label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         font-weight: bold;
-        color: #333; /* Text color for labels */
+        color: #333;
     }
 
     /* Style for text and password inputs */
     .form-control {
         width: 100%;
         padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc; /* Border color for inputs */
-        border-radius: 5px; /* Rounded corners for inputs */
-        font-size: 16px; /* Font size for inputs */
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
     }
 
-    /* Style for the submit buttons */
+    /* Style for the select element */
+    select.form-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Style for the submit button */
     .btn-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px; /* Add some margin for spacing */
+        margin-top: 20px;
     }
 
-    /* Style for the buttons */
+    /* Style for the button */
     .btn {
-        color: #fff; /* Text color for the button */
-        padding: 15px 0; /* Adjust the padding to make both buttons the same height */
-        width: 48%; /* Set a fixed width for both buttons */
+        color: #fff;
+        padding: 15px 0;
+        width: 100%;
         border: none;
         border-radius: 5px;
         font-size: 16px;
@@ -49,54 +62,103 @@
 
     /* Style for the primary button */
     .btn-primary {
-        background-color: #198754; /* Primary button background color */
+        background-color: #198754;
     }
 
     /* Style for the secondary button */
     .btn-secondary {
-        background-color: #ffc107; /* Secondary button background color */
-    }
-    .btn-primary:hover {
-        background-color: #229760; /* Primary button background color */
+        background-color: #ffc107;
     }
 
-    /* Style for the secondary button */
-    .btn-secondary:hover {
-        background-color: #ffcc34; /* Secondary button background color */
+    /* Style for button hover effect */
+    .btn:hover {
+        filter: brightness(1.2);
     }
 
     /* Style for the horizontal line */
     .divider {
-        border-top: 1px solid #ccc; /* Border color for the horizontal line */
-        margin: 10px 0;
+        border-top: 1px solid #ccc;
+        margin: 15px 0;
     }
 </style>
-<PageTitle>Register</PageTitle>
-<div class="card" style="width: 340px; max-width: 100%; margin: 0 auto; display: flex; 
-flex-direction: column; justify-content: center;">
+
+
+<div class="card"
+    style="width: 340px; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; justify-content: center;">
     <div class="card-header" style="text-align: center;">
         <h3 class="card-title">REGISTER</h3>
     </div>
-    <div class="card-body">
-        <div class="form-container">
-            <form action="post">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" class="form-control">
-                <label for="password">Password</label>
-                <input type="text" id="username" name="username" class="form-control">
-                <label for="phone_number">Phone Number</label>
-                <input type="number" id="phone" name="phone" class="form-control">
-                <br>
+    <EditForm Model="@register" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="card-body">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <InputText id="username" name="username" class="form-control"
+                        @bind-Value="register.Username" />
+                    <ValidationMessage For="() => register.Username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <InputText id="password" name="password" class="form-control" type="password"
+                        @bind-Value="register.Password" />
+                    <ValidationMessage For="() => register.Password" />
+                </div>
+
+                <div class="form-group">
+                    <label for="no_telp">Nomor Telepon</label>
+                    <InputText id="no_telp" name="no_telp" class="form-control" @bind-Value="register.NoTelp" />
+                    <ValidationMessage For="() => register.NoTelp" />
+                </div>
+
+                <div class="form-group">
+                    <label for="loginas">Register As</label>
+                    <InputSelect id="loginas" name="loginas" class="form-control" style="width: 100%;"
+                        @bind-Value="register.RegisterAs">
+                        <option value="Pengguna Rumahan">Pengguna Rumahan</option>
+                        <option value="Pengambil Sampah">Pengambil Sampah</option>
+                        <option value="Bank Sampah">Bank Sampah</option>
+                    </InputSelect>
+                    @* <ValidationMessage For="() => RegisterModel.RegisterAs" /> *@
+                </div>
+
                 <button type="submit" class="btn btn-primary">REGISTER</button>
-            </form>
-            <div class="divider">OR</div>
-            <button type="button" class="btn btn-secondary" style="color: black;" @onclick="login">LOGIN</button>
+                <div class="divider">OR</div>
+                <button type="button" class="btn btn-secondary" style="color: black;" @onclick="login">LOGIN</button>
+            </div>
         </div>
-    </div>
+    </EditForm>
 </div>
 
 @code {
-    private void login() {
+
+    private RegisterModel register = new RegisterModel();
+    private void HandleValidSubmit()
+    {
+
+    }
+
+    private void login()
+    {
         Navigation.NavigateTo("/");
     }
+    public class RegisterModel
+    {
+        [Required(ErrorMessage = "Username is required.")]
+        public string? Username { get; set; }
+
+        [Required(ErrorMessage = "Password is required.")]
+        [DataType(DataType.Password)]
+        public string? Password { get; set; }
+
+        [Required(ErrorMessage = "Nomor Telepon is required.")]
+        [RegularExpression(@"^\d{10,15}$", ErrorMessage = "Nomor Telepon must be a valid number with 10-15 digits.")]
+        public string? NoTelp { get; set; }
+
+        [Required(ErrorMessage = "Register As is required.")]
+        public string? RegisterAs { get; set; }
+    }
+
 }
