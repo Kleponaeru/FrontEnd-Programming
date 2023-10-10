@@ -2,6 +2,9 @@
 @inject NavigationManager Navigation
 @using System
 @using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@inject HttpClient Http
+@using System.Net.Http.Json
 @* @inherits Models.RegisterModel *@
 
 <style>
@@ -88,7 +91,7 @@
     <div class="card-header" style="text-align: center;">
         <h3 class="card-title">REGISTER</h3>
     </div>
-    <EditForm Model="@register" OnValidSubmit="@HandleValidSubmit">
+    <EditForm Model="register" OnValidSubmit="HandleValidSubmit">
         <DataAnnotationsValidator />
         <ValidationSummary />
         <div class="card-body">
@@ -97,20 +100,20 @@
                     <label for="username">Username</label>
                     <InputText id="username" name="username" class="form-control"
                         @bind-Value="register.Username" />
-                    <ValidationMessage For="() => register.Username" />
+                    <ValidationMessage For="@(() => register.Username)" />
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <InputText id="password" name="password" class="form-control" type="password"
                         @bind-Value="register.Password" />
-                    <ValidationMessage For="() => register.Password" />
+                    <ValidationMessage For="@(() => register.Password)" />
                 </div>
 
                 <div class="form-group">
                     <label for="no_telp">Nomor Telepon</label>
                     <InputText id="no_telp" name="no_telp" class="form-control" @bind-Value="register.NoTelp" />
-                    <ValidationMessage For="() => register.NoTelp" />
+                    <ValidationMessage For="@(() => register.NoTelp)" />
                 </div>
 
                 <div class="form-group">
@@ -121,7 +124,7 @@
                         <option value="Pengambil Sampah">Pengambil Sampah</option>
                         <option value="Bank Sampah">Bank Sampah</option>
                     </InputSelect>
-                    @* <ValidationMessage For="() => RegisterModel.RegisterAs" /> *@
+                    <ValidationMessage For="@(() => register.RegisterAs)" />
                 </div>
 
                 <button type="submit" class="btn btn-primary">REGISTER</button>
