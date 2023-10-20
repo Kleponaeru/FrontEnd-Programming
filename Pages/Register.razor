@@ -163,7 +163,7 @@
         public string? RegisterAs { get; set; }
     }
     public async Task addUser()
-    {
+    {   
         await Http.PostAsJsonAsync("http://localhost:5030/Slim3/public/api/fe/regis", register);
     }
 
