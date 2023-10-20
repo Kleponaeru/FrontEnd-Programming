@@ -91,7 +91,7 @@
     <div class="card-header" style="text-align: center;">
         <h3 class="card-title">REGISTER</h3>
     </div>
-    <EditForm Model="register" OnValidSubmit="HandleValidSubmit">
+    <EditForm Model="@register" OnValidSubmit="addUser">
         <DataAnnotationsValidator />
         <ValidationSummary />
         <div class="card-body">
@@ -115,8 +115,13 @@
                     <InputText id="no_telp" name="no_telp" class="form-control" @bind-Value="register.NoTelp" />
                     <ValidationMessage For="@(() => register.NoTelp)" />
                 </div>
-
                 <div class="form-group">
+                    <label for="register_as">Register As</label>
+                    <InputText id="register_as" name="register_as" class="form-control" @bind-Value="register.RegisterAs" />
+                    <ValidationMessage For="@(() => register.RegisterAs)" />
+                </div>
+
+                @* <div class="form-group">
                     <label for="loginas">Register As</label>
                     <InputSelect id="loginas" name="loginas" class="form-control" style="width: 100%;"
                         @bind-Value="register.RegisterAs">
@@ -125,7 +130,7 @@
                         <option value="Bank Sampah">Bank Sampah</option>
                     </InputSelect>
                     <ValidationMessage For="@(() => register.RegisterAs)" />
-                </div>
+                </div> *@
 
                 <button type="submit" class="btn btn-primary">REGISTER</button>
                 <div class="divider">OR</div>
@@ -137,11 +142,7 @@
 
 @code {
 
-    private RegisterModel register = new RegisterModel();
-    private void HandleValidSubmit()
-    {
-
-    }
+    private RegisterModel register = new();
 
     private void login()
     {
@@ -159,9 +160,11 @@
         [Required(ErrorMessage = "Nomor Telepon is required.")]
         [RegularExpression(@"^\d{10,15}$", ErrorMessage = "Nomor Telepon must be a valid number with 10-15 digits.")]
         public string? NoTelp { get; set; }
-
-        [Required(ErrorMessage = "Register As is required.")]
         public string? RegisterAs { get; set; }
+    }
+    public async Task addUser()
+    {
+        await Http.PostAsJsonAsync("http://localhost:5030/Slim3/public/api/fe/regis", register);
     }
 
 }

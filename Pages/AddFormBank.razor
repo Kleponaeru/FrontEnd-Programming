@@ -1,0 +1,56 @@
+@page "/home/formaddBank"
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@using System.Net.Http.Json
+
+<style>
+    .inter-font {
+        font-family: 'Inter', sans-serif; /* Use the Inter font family */
+    }
+    
+    .btn-outline-red {
+        color: red;
+        border: 2px solid red;
+        background-color: transparent;
+    }
+</style>
+<h1 class="inter-font">DATA BANK SAMPAH</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post" action="/student/add">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama Pemilik</label>
+                <input type="text" id="nama_pemilik" name="nama_pemilik" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama Bank Sampah</label>
+                <input type="text" id="nama_bank" name="nama_bank" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="gender">Alamat</label>
+                <input type="text" id="gender" name="gender" class="form-control" required/>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Submit</button>
+            <button type="button" class="btn btn-secondary" style="margin-top: 8px;">Reset</button>
+        </form>
+    </div>
+</div>
+
+@code {
+    @* private string? Username;
+    private string? Nama;
+    private string? Gender;
+
+    private void ResetForm()
+    {
+        // Reset the form fields by clearing the bound variables
+        Username = string.Empty;
+        Nama = string.Empty;
+        Gender = string.Empty;
+    } *@
+}

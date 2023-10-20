@@ -1,123 +1,63 @@
 @page "/home"
-@inherits LayoutComponentBase
-<!DOCTYPE html>
-<html lang="en">
+@inject NavigationManager Navigation
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@inject HttpClient Http
+@using System.Net.Http.Json
+
 <style>
-    .page {
-        position: relative;
-        display: flex;
-        flex-direction: column;
+    .inter-font {
+        font-family: 'Inter', sans-serif; /* Use the Inter font family */
     }
-
-    main {
-        flex: 1;
-    }
-
-    .sidebar {
-        background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-    }
-
-    .top-row {
-        background-color: #f7f7f7;
-        border-bottom: 1px solid #d6d5d5;
-        justify-content: flex-end;
-        height: 3.5rem;
-        display: flex;
-        align-items: center;
-    }
-
-    .top-row ::deep a,
-    .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row ::deep a:hover,
-    .top-row ::deep .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row ::deep a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    @* @media (max-width: 640.98px) {
-        .top-row:not(.auth) {
-            display: none;
-        } *@
-
-        .top-row.auth {
-            justify-content: space-between;
-        }
-
-        .top-row ::deep a,
-        .top-row ::deep .btn-link {
-            margin-left: 0;
-        }
-    }
-
-    @* @media (min-width: 641px) {
-        .page {
-            flex-direction: row;
-        } *@
-
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            position: sticky;
-            top: 0;
-        }
-
-        .top-row {
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-
-        .top-row.auth ::deep a:first-child {
-            flex: 1;
-            text-align: right;
-            width: 0;
-        }
-
-        .top-row,
-        article {
-            padding-left: 2rem !important;
-            padding-right: 1.5rem !important;
-        }
+    
+    .btn-outline-red {
+        color: red;
+        border: 2px solid red;
+        background-color: transparent;
     }
 </style>
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="page">
-    <div class="sidebar"> 
-        <NavMenu />
-    </div> 
-
-    <main>
-        <div class="nav-item px-3">
-            <!-- Your existing content here -->
-        </div>
-        @* <div class="position-absolute top-0 end-0 p-3">
-            <a class="btn btn-warning" href="updateProfile">
-                <span class="bi bi-person-circle" aria-hidden="true"></span> Profile
-            </a>
-        </div>  *@
-
-        <article class="content px-4">
-            @Body
-        </article>
-     </main>
+<h1 class="inter-font">DATA PESANAN</h1>
+<div class="card mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <a href="/home/formaddPengguna" class="btn btn-primary">
+            <i class="bi bi-plus-square"></i> Tambah Data
+        </a>
+        <form action="/student/search" method="GET" class="form-inline">
+            <div class="input-group">
+                <input name="q" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append" style="margin-left: 10px;">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-hover inter-font">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="/student/formedit/{{$m->id}}" class="btn btn-outline-primary">
+                            <i class="bi bi-pencil"></i> Edit
+                        </a>
+                        <a href="/student/delete/{{$m->id}}" class="btn btn-outline-danger">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-</body>
-
-</html>
