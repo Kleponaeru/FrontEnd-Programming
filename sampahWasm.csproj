@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="D:\ComponentLibrary\ComponentLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

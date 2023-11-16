@@ -912,3 +912,12 @@ C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\build-gz\j+oCnjZV.gz
 C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\build-gz\ATDVXsq+.gz
 C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\build-gz\VJxuWuG3.gz
 C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\build-gz\kPm0LRPM.gz
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\wwwroot\_framework\ComponentLibrary.dll
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\wwwroot\_framework\ComponentLibrary.pdb
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\wwwroot\_framework\ComponentLibrary.dll.gz
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\wwwroot\_framework\ComponentLibrary.pdb.gz
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\ComponentLibrary.staticwebassets.runtime.json
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\ComponentLibrary.dll
+C:\Users\lenovo\FrontEnd\sampahWasm\bin\Debug\net7.0\ComponentLibrary.pdb
+C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\build-gz\bSaeb+XW.gz
+C:\Users\lenovo\FrontEnd\sampahWasm\obj\Debug\net7.0\build-gz\i8LycsWq.gz

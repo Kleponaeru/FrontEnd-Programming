@@ -660,6 +660,19 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "ComponentLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "7.0.5"
+        },
+        "compile": {
+          "bin/placeholder/ComponentLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ComponentLibrary.dll": {}
+        }
       }
     },
     "net7.0/browser-wasm": {
@@ -1314,6 +1327,19 @@
         },
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
+        }
+      },
+      "ComponentLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "7.0.5"
+        },
+        "compile": {
+          "bin/placeholder/ComponentLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ComponentLibrary.dll": {}
         }
       }
     }
@@ -2353,10 +2379,16 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "ComponentLibrary/1.0.0": {
+      "type": "project",
+      "path": "D:\\ComponentLibrary\\ComponentLibrary.csproj",
+      "msbuildProject": "D:\\ComponentLibrary\\ComponentLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "ComponentLibrary >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 7.0.5",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 7.0.5",
       "Microsoft.AspNetCore.Cors >= 2.2.0",
@@ -2387,7 +2419,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\ComponentLibrary\\ComponentLibrary.csproj": {
+              "projectPath": "D:\\ComponentLibrary\\ComponentLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
